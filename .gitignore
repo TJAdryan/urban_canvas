@@ -1,0 +1,12 @@
+# .gitignore
+
+# Python stuff
+.venv/
+__pycache__/ju
+*.egg-info
+
+# Secrets - DO NOT track this file
+.env
+
+# Data files
+/data/
