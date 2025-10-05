@@ -1,0 +1,6 @@
+pyproject.toml
+urban_canvas.egg-info/PKG-INFO
+urban_canvas.egg-info/SOURCES.txt
+urban_canvas.egg-info/dependency_links.txt
+urban_canvas.egg-info/requires.txt
+urban_canvas.egg-info/top_level.txt
