@@ -1,68 +1,163 @@
-Project Urban Canvas 🏙️
-This project aims to identify and quantify the visual indicators of urban gentrification by correlating economic data with high-resolution satellite imagery. The initial analysis focuses on tracking changes in median household income across different neighborhoods in Brooklyn, NY, between 2011 and 2023.
+# Urban Canvas 🏙️
 
-Setup
-This project uses uv for environment and package management.
+A data science project that identifies and quantifies visual indicators of urban gentrification by correlating economic data with high-resolution satellite imagery.
 
-Clone the repository:
+## 📋 Project Overview
 
-Bash
+Urban Canvas aims to understand the visual patterns of neighborhood change in Brooklyn, NY by analyzing the relationship between economic indicators and satellite imagery. The project combines:
 
-git clone https://github.com/tjadryan/urban_canvas.git
-cd urban-canvas
-Create the virtual environment:
+- **Economic Data Analysis**: Tracking median household income changes across census tracts (2011-2023)
+- **Geospatial Visualization**: Mapping economic patterns using census tract boundaries
+- **Computer Vision** (Future): Analyzing satellite imagery to identify visual indicators of urban development
+- **Machine Learning** (Future): Training models to correlate visual features with economic changes
 
-Bash
+## 🎯 Objectives
 
-uv venv
-Activate the environment:
+1. **Economic Pattern Analysis**: Map and analyze median household income changes across Brooklyn neighborhoods
+2. **Visual Feature Extraction**: Identify visual indicators of gentrification from satellite imagery
+3. **Correlation Analysis**: Establish relationships between economic changes and visual urban development patterns
+4. **Predictive Modeling**: Develop models to predict neighborhood economic trends from satellite data
 
-Bash
+## 🛠️ Technology Stack
 
-source .venv/bin/activate
-Install dependencies:
-All required packages are listed in pyproject.toml. Install them with:
+- **Python**: Core programming language
+- **Pandas & GeoPandas**: Data manipulation and geospatial analysis
+- **Matplotlib & Seaborn**: Data visualization
+- **Rasterio**: Satellite imagery processing
+- **PyTorch**: Deep learning framework for computer vision
+- **Scikit-learn**: Machine learning utilities
+- **Jupyter**: Interactive development and analysis
 
-Bash
+## 🚀 Quick Start
 
-uv pip install -e .
-Data
-The raw data is not tracked in this repository and must be downloaded manually into the /data folder.
+### Prerequisites
 
-Geospatial Data:
+- Python 3.10 or higher
+- [uv](https://docs.astral.sh/uv/) package manager
 
-Source: U.S. Census Bureau Cartographic Boundary Files
+### Installation
 
-File: Shapefile (.shp) for Census Tracts in New York at the 1:500,000 scale.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/tjadryan/urban_canvas.git
+   cd urban_canvas
+   ```
 
-Economic Data:
+2. **Create and activate virtual environment:**
+   ```bash
+   uv venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
 
-Source: data.census.gov
+3. **Install dependencies:**
+   ```bash
+   uv pip install -e .
+   ```
 
-Table: B19013 (Median Household Income) for all census tracts in Kings County, New York.
+4. **Launch Jupyter:**
+   ```bash
+   jupyter notebook
+   ```
 
-Files: Downloaded as CSV for three periods: 2011, 2019, and 2023 (using ACS 5-Year Estimates).
+## 📊 Data Sources
 
-Current Status
-The initial data processing is complete. The Jupyter notebook 01-data-exploration.ipynb contains the workflow for:
+### Economic Data
+- **Source**: [U.S. Census Bureau](https://data.census.gov)
+- **Table**: B19013 (Median Household Income in the Past 12 Months)
+- **Geography**: Census tracts in Kings County (Brooklyn), New York
+- **Time Periods**: 2011, 2019, 2023 (ACS 5-Year Estimates)
+- **Format**: CSV files with metadata
 
-Loading, cleaning, and merging the three income data files.
+### Geospatial Data
+- **Source**: [U.S. Census Bureau Cartographic Boundary Files](https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html)
+- **Type**: Census tract boundaries for New York State
+- **Scale**: 1:500,000
+- **Format**: Shapefile (.shp)
 
-Loading the census tract shapefile and filtering it for Brooklyn (Kings County).
+### Satellite Imagery (Future)
+- **Source**: To be determined (Google Earth Engine, Planet Labs, or similar)
+- **Resolution**: High-resolution imagery for selected neighborhoods
+- **Time Periods**: Corresponding to economic data periods
 
-Merging the final income data with the geospatial data.
+## 📁 Project Structure
 
-Generating a choropleth map visualizing the 2023 median household income.
+```
+urban_canvas/
+├── README.md                 # Project documentation
+├── pyproject.toml           # Project configuration and dependencies
+├── gather_data.ipynb        # Main analysis notebook
+├── data/                    # Raw data files (not tracked in git)
+│   ├── ACSDT5Y20**.csv     # Economic data files
+│   ├── *.shp               # Census tract shapefiles
+│   └── ...
+└── urban_canvas.egg-info/   # Package metadata
+```
 
-Next Steps
-[ ] Calculate and map the percentage change in income between 2011-2019 and 2019-2023.
+## 🔬 Analysis Workflow
 
-[ ] Identify a diverse set of 5-6 neighborhoods for in-depth satellite image analysis.
+The primary analysis is contained in `gather_data.ipynb`, which includes:
 
-[ ] Begin acquisition of high-resolution satellite imagery for the selected neighborhoods and time periods.
+1. **Data Loading & Cleaning**
+   - Import economic data from multiple years
+   - Clean and standardize column names
+   - Handle missing values and data inconsistencies
 
-[ ] Develop the pipeline for slicing satellite images into uniform tiles.
+2. **Geospatial Processing**
+   - Load census tract boundaries
+   - Filter for Brooklyn (Kings County) tracts
+   - Merge economic data with geographic boundaries
 
-[ ] Train a computer vision model to extract features from the image tiles.
+3. **Exploratory Data Analysis**
+   - Statistical summaries of income data
+   - Temporal analysis of income changes
+   - Geographic distribution patterns
 
-[ ] Correlate the extracted visual features with the observed economic changes.
+4. **Visualization**
+   - Choropleth maps of median household income
+   - Time series analysis of neighborhood changes
+   - Interactive visualizations for data exploration
+
+## 📈 Current Status
+
+### ✅ Completed
+- [x] Project setup and environment configuration
+- [x] Economic data collection and processing
+- [x] Geospatial data integration
+- [x] Basic exploratory data analysis
+- [x] Initial choropleth visualizations
+
+### 🚧 In Progress
+- [ ] Calculate and map percentage change in income between periods
+- [ ] Statistical analysis of income trends by neighborhood
+- [ ] Identify neighborhoods with significant economic changes
+
+### 🔮 Future Work
+- [ ] Identify 5-6 diverse neighborhoods for satellite analysis
+- [ ] Acquire high-resolution satellite imagery
+- [ ] Develop image preprocessing pipeline
+- [ ] Train computer vision models for feature extraction
+- [ ] Correlate visual features with economic indicators
+- [ ] Build predictive models for neighborhood change
+
+## 🤝 Contributing
+
+This is a learning project, but contributions and suggestions are welcome! Please feel free to:
+- Open issues for bugs or feature requests
+- Submit pull requests for improvements
+- Share feedback on methodology or analysis approaches
+
+## 📝 License
+
+This project is for educational and research purposes. Data sources retain their original licenses and terms of use.
+
+## 👤 Author
+
+**Dominick Ryan**
+- Email: tja_dryan@outlook.com
+- GitHub: [@TJAdryan](https://github.com/TJAdryan)
+
+## 🙏 Acknowledgments
+
+- U.S. Census Bureau for providing comprehensive economic and geographic data
+- The open-source Python data science community for excellent tools and libraries
+- Various online resources and tutorials that informed the project methodology
