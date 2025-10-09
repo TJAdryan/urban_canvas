@@ -1,6 +1,7 @@
 # Urban Canvas 🏙️
 
 A data science project that identifies and quantifies visual indicators of urban gentrification by correlating economic data with high-resolution satellite imagery.
+This project is going to focus on a couple of slices of Brooklyn instead of the whole borough, I am planning to add more areas once the initial results are in, to for model valadation. 
 
 ## 📋 Project Overview
 
